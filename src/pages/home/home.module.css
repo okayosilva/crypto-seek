@@ -1,0 +1,69 @@
+.formContainer {
+    display: flex;
+    align-items: center;
+
+    background-color: var(--gray-400);
+    padding: 0.5rem;
+
+    border-radius: 4px;
+}
+
+.buttonForm,
+.buttonFormeDelete {
+    background-color: transparent;
+    color: #8d8d8d;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    margin-left: 0.5rem;
+}
+
+.buttonFormeDelete {
+    transition: all 0.1s ease-in;
+}
+
+.buttonFormeDelete:hover {
+    animation: shake 0.5s ease-in-out;
+
+    background-color: #ff4d4d;
+    color: white;
+}
+
+.inputForm {
+    width: 100%;
+    background-color: transparent;
+    border: 0;
+    padding: .5rem;
+
+    font-size: 1rem;
+    color: #d8d8d8;
+
+    outline: none;
+}
+
+.inputForm::placeholder {
+    color: #8d8d8d;
+    font-size: 1rem;
+}
+
+
+@keyframes shake {
+    0% {
+        transform: translateX(0);
+    }
+
+    25% {
+        transform: translateX(-2px);
+    }
+
+    50% {
+        transform: translateX(2px);
+    }
+
+    75% {
+        transform: translateX(-2px);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
