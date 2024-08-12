@@ -75,6 +75,10 @@ th {
 
 .tr {
     background-color: var(--gray-400);
+    transition: all 0.2s ease-in;
+}
+.tr:hover {
+    background-color: var(--gray-300);
 }
 
 .tdLabel {
@@ -82,8 +86,20 @@ th {
     color: var(--gray-100);
 }
 
+
+.name {
+    display: flex;
+    align-items: center;
+}
+
 .name span {
     color: var(--gray-100);
+}
+
+.logo {
+    width: 1.5rem;
+    height: 1.5rem;
+    margin-right: 0.5rem;
 }
 
 .change {
@@ -146,6 +162,12 @@ table td {
         display: block;
         font-size: 1rem;
         text-align: right;
+    }
+
+
+    .name {
+        justify-content: flex-end;
+
     }
 
     .change {

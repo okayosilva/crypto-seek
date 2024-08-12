@@ -83,6 +83,11 @@ export function Home() {
               <tr className={styles.tr} key={coin.id}>
                 <td className={styles.tdLabel} data-Label="Moeda">
                   <div className={styles.name}>
+                    <img
+                      className={styles.logo}
+                      src={`https://assets.coincap.io/assets/icons/${coin.symbol.toLowerCase()}@2x.png`}
+                      alt="logo cripto"
+                    />
                     <Link to={`/details/${coin.id}`}>
                       <span>
                         {coin.name} | {coin.symbol}
@@ -109,7 +114,7 @@ export function Home() {
                   data-Label="Mudança 24h"
                 >
                   <div className={styles.change}>
-                    <span>{coin.changePercent24Hr}</span>
+                    <span>{Number(coin.changePercent24Hr).toFixed(3)}</span>
                     {Number(coin.changePercent24Hr) > 0 ? (
                       <TrendingUp size={16} />
                     ) : (
