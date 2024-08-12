@@ -5,6 +5,10 @@
     padding: 1rem 0;
 }
 
+.title {
+    color: var(--gray-100);
+}
+
 .emphasis {
     color: var(--green-300);
 }
