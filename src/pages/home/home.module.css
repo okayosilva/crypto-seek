@@ -170,6 +170,24 @@ table td {
 }
 
 
+.containerButtonLoad {
+    display: flex;
+    justify-content: end;
+    margin-top: 1rem;
+}
+
+.buttonLoad {
+    background-color: var(--gray-400);
+    color: var(--gray-100);
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    transition: all 0.2s ease-in;
+}
+
+.buttonLoad:hover {
+    background-color: var(--gray-300);
+}
+
 @keyframes shake {
     0% {
         transform: translateX(0);

@@ -18,6 +18,8 @@ export function Home() {
     navigate(`/details/${inputValue}`);
   }
 
+  function handleLoadMore() {}
+
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
       if (formRef.current && !formRef.current.contains(event.target as Node)) {
@@ -95,6 +97,12 @@ export function Home() {
           </tr>
         </tbody>
       </table>
+
+      <div className={styles.containerButtonLoad}>
+        <button className={styles.buttonLoad} onClick={handleLoadMore}>
+          Ver mais
+        </button>
+      </div>
     </main>
   );
 }
