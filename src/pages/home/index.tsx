@@ -1,11 +1,22 @@
 import { Search, TrendingUp, X } from 'lucide-react';
-import { useEffect, useRef, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { FormEvent, useEffect, useRef, useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import styles from './home.module.css';
 
 export function Home() {
   const [isActive, setIsActive] = useState(false);
+  const [inputValue, setInputValue] = useState('');
+
   const formRef = useRef<HTMLFormElement | null>(null);
+  const navigate = useNavigate();
+
+  function handleSubmit(e: FormEvent) {
+    e.preventDefault();
+
+    if (inputValue === '') return;
+
+    navigate(`/details/${inputValue}`);
+  }
 
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
@@ -25,6 +36,7 @@ export function Home() {
       <form
         className={`${styles.formContainer} ${isActive ? styles.active : ''}`}
         onClick={() => setIsActive(true)}
+        onSubmit={handleSubmit}
         ref={formRef}
       >
         <button type="submit" className={styles.buttonForm}>
@@ -34,10 +46,14 @@ export function Home() {
           type="text"
           placeholder="Digite o nome da moeda"
           className={styles.inputForm}
+          value={inputValue}
+          onChange={(event) => setInputValue(event.target.value)}
         />
-        <button type="submit" className={styles.buttonFormeDelete}>
-          <X />
-        </button>
+        {isActive && (
+          <button type="submit" className={styles.buttonFormeDelete}>
+            <X />
+          </button>
+        )}
       </form>
 
       <table>
