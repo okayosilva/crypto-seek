@@ -10,6 +10,7 @@ export function Home() {
   const [inputValue, setInputValue] = useState('');
   const [coins, setCoins] = useState<CoinProps[]>([]);
   const [onLoading, setOnLoading] = useState(false);
+  const [offset, setOffSet] = useState(0);
 
   const formRef = useRef<HTMLFormElement | null>(null);
   const navigate = useNavigate();
@@ -19,10 +20,16 @@ export function Home() {
 
     if (inputValue === '') return;
 
-    navigate(`/details/${inputValue}`);
+    navigate(`/details/${inputValue.toLowerCase()}`);
   }
 
-  function handleLoadMore() {}
+  function handleLoadMore() {
+    setOffSet((prev) => prev + 5);
+  }
+
+  function handleClear() {
+    setInputValue('');
+  }
 
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
@@ -38,13 +45,22 @@ export function Home() {
   }, [formRef]);
 
   useEffect(() => {
+    let isMounted = true;
     setOnLoading(true);
 
-    getDataCoin()
-      .then((data) => setCoins(data))
+    getDataCoin(offset)
+      .then((data) => {
+        if (isMounted) setCoins((prevState) => [...prevState, ...data]);
+      })
       .catch((error) => console.error('Error setting coin data:', error))
-      .finally(() => setOnLoading(false));
-  }, []);
+      .finally(() => {
+        if (isMounted) setOnLoading(false);
+      });
+
+    return () => {
+      isMounted = false;
+    };
+  }, [offset]);
 
   return (
     <main className={styles.mainContainer}>
@@ -65,7 +81,11 @@ export function Home() {
           onChange={(event) => setInputValue(event.target.value)}
         />
         {isActive && (
-          <button type="submit" className={styles.buttonFormeDelete}>
+          <button
+            type="submit"
+            className={styles.buttonFormeDelete}
+            onClick={handleClear}
+          >
             <X />
           </button>
         )}
@@ -137,7 +157,11 @@ export function Home() {
           </table>
 
           <div className={styles.containerButtonLoad}>
-            <button className={styles.buttonLoad} onClick={handleLoadMore}>
+            <button
+              className={styles.buttonLoad}
+              onClick={handleLoadMore}
+              type="button"
+            >
               Ver mais
             </button>
           </div>

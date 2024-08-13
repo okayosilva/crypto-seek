@@ -18,14 +18,14 @@ export interface CoinProps {
   formateVolume?: string;
 }
 
-interface DataProps {
+export interface DataProps {
   data: CoinProps[];
 }
 
-export async function getDataCoin(): Promise<CoinProps[]> {
+export async function getDataCoin(offset: number): Promise<CoinProps[]> {
   try {
     const response = await fetch(
-      'https://api.coincap.io/v2/assets?limit=5&offset=0',
+      `https://api.coincap.io/v2/assets?limit=5&offset=${offset}`,
     );
     const result: DataProps = await response.json();
 

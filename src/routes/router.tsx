@@ -10,7 +10,7 @@ export function Router() {
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
-          <Route path="/details/:cripto" element={<Details />} />
+          <Route path="/details/:crypto" element={<Details />} />
         </Route>
         <Route path="*" element={<NotFound />} />
       </Routes>

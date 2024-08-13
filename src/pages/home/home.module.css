@@ -1,3 +1,7 @@
+.mainContainer {
+    padding-bottom: 1rem;
+}
+
 .formContainer {
     display: flex;
     align-items: center;
@@ -190,11 +194,9 @@ table td {
     }
 }
 
-
 .containerButtonLoad {
     display: flex;
     justify-content: end;
-    margin-top: 1rem;
 }
 
 .buttonLoad {
