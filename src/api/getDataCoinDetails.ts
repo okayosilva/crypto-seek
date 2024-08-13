@@ -1,4 +1,4 @@
-import { CoinProps, DataProps } from './getDataCoin';
+import { CoinProps } from './getDataCoin';
 
 interface CoinDetails {
   data: CoinProps;

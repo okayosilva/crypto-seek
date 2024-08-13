@@ -136,7 +136,7 @@ table td {
     color: var(--red-500);
 }
 
-/* RESPONSIVE TABLE */
+/* RESPONSIVE TABLE MOBILE */
 @media screen and (max-width: 600px) {
     table {
         border: 0;
