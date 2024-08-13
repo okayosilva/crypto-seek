@@ -1,50 +1,53 @@
-# React + TypeScript + Vite
+Status: Completo 🚀
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+ <div><img src="./public/crypto-1.png" />
 
-Currently, two official plugins are available:
+## Crypto Seek
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Crypto Seek é uma aplicação web projetada para acompanhar as tendências do mercado de criptomoedas. A ferramenta permite que você identifique rapidamente quais criptomoedas estão em alta ou em baixa, oferecendo análises detalhadas e informações relevantes para entusiastas e investidores que buscam tomar decisões informadas no mundo das criptomoedas.
 
-## Expanding the ESLint configuration
+## Funcionalidades:
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- Lista as criptomoedas disponíveis e exibe suas informações a partir de uma API.
+- Permite a busca por criptomoedas específicas.
+- Exibe uma tela com detalhes para cada criptomoeda.
 
-- Configure the top-level `parserOptions` property like this:
+<br/>
+<br/>
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+ <div><img src="./public/crypto-1.png" />
+<br/>
+<br/>
+ <div><img src="./public/crypto-2.png" />
+
+<hr/>
+
+## 💻 Tecnologias Utilizadas:
+
+- React
+- husky
+- Eslint
+- Prettier
+- Typescript
+
+<hr/>
+
+## 🚀 Projeto no ar
+
+<a href="https://crypto-seek.vercel.app/">Acesse aqui</a>
+
+## ⚙️ Como Executar
+
+- Faça um clone do repositório do projeto no GitHub.
+- Navegue até o diretório do projeto.
+- Execute o seguinte comando para instalar as dependências:
+
+```
+$ npm install
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+## Running the project
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
+```
+$ npm run dev
 ```
